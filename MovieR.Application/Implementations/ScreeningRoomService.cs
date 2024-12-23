@@ -66,9 +66,20 @@ namespace MovieR.Application.Implementations
             return ScreeningRoomMapper.MapToDto(screeningRoom);
         }
 
-        public Task<ScreeningRoomDto> UpdateScreeningRoom(Guid id, ScreeningRoomDto screeningRoomDto)
+        public async Task<ScreeningRoomDto> UpdateScreeningRoom(Guid id, ScreeningRoomDto screeningRoomDto)
         {
-            throw new NotImplementedException();
+            var existingScreeningRoom = await _context.ScreeningRooms.FirstOrDefaultAsync(room => room.Id == id);
+            if (existingScreeningRoom == null)
+            {
+                return null;
+            }
+
+            existingScreeningRoom.Name = screeningRoomDto.Name;
+            existingScreeningRoom.TotalColumns = screeningRoomDto.TotalColumns;
+            existingScreeningRoom.TotalRows = screeningRoomDto.TotalRows;
+
+            await _context.SaveChangesAsync(CancellationToken.None);
+            return ScreeningRoomMapper.MapToDto(existingScreeningRoom);
         }
     }
 }

@@ -78,6 +78,23 @@ namespace MovieR.API.Controllers
             }
         }
 
+        //PUT: api/ScreeningRoom/5
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> UpdateScreeningRoom(Guid id, [FromBody] ScreeningRoomDto screeningRoomDto)
+        {
+            try {
+                var screeningRoom = await _screeningRoomService.UpdateScreeningRoom(id, screeningRoomDto);
+                if (screeningRoom == null)
+                {
+                    return NotFound(new { Message = "Místnost nebyla nalezena." });
+                }
+                return Ok(screeningRoom);
+            
+            } catch (Exception e) {
+                return StatusCode(500, new { Message = "Nastala neočekávaná chyba.", Error = e.Message });
+            }
+        }
+
         
     }
 }
