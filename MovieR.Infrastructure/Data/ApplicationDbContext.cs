@@ -4,11 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MovieR.Application.Context;
 using MovieR.Domain.Entities;
 
 namespace MovieR.Infrastructure.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -23,6 +24,11 @@ namespace MovieR.Infrastructure.Data
         public DbSet<Seat> Seats { get; set; } = null!;
         public DbSet<TicketPrice> TicketPrices { get; set; } = null!;
     
+
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            return base.SaveChangesAsync(cancellationToken);
+        }
 
         
     }

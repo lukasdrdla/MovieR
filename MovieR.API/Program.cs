@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MovieR.Application.Context;
+using MovieR.Application.Implementations;
+using MovieR.Application.Interfaces;
 using MovieR.Domain.Entities;
 using MovieR.Infrastructure.Data;
 
@@ -11,11 +14,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IScreeningRoomService, ScreeningRoomService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
 {
