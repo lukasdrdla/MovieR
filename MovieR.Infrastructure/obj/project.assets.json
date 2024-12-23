@@ -856,11 +856,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Infrastructure/MovieR.Infrastructure.csproj",
+      "projectUniqueName": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Infrastructure/MovieR.Infrastructure.csproj",
       "projectName": "MovieR.Infrastructure",
-      "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Infrastructure/MovieR.Infrastructure.csproj",
+      "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Infrastructure/MovieR.Infrastructure.csproj",
       "packagesPath": "/Users/lukasdrdla/.nuget/packages/",
-      "outputPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Infrastructure/obj/",
+      "outputPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/lukasdrdla/.nuget/NuGet/NuGet.Config"
@@ -876,8 +876,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj": {
-              "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj"
+            "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj": {
+              "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj"
             }
           }
         }

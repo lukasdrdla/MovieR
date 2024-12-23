@@ -11,3 +11,6 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Private user settings
+../../MovieR.API/appsettings.Development.json
+../../MovieR.API/appsettings.json

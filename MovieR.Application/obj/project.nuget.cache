@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4cAFKEhzg2o=",
+  "dgSpecHash": "DYxA4qZ1Edo=",
   "success": true,
-  "projectFilePath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj",
+  "projectFilePath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj",
   "expectedPackageFiles": [
     "/Users/lukasdrdla/.nuget/packages/microsoft.aspnetcore.cryptography.internal/8.0.8/microsoft.aspnetcore.cryptography.internal.8.0.8.nupkg.sha512",
     "/Users/lukasdrdla/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/8.0.8/microsoft.aspnetcore.cryptography.keyderivation.8.0.8.nupkg.sha512",

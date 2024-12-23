@@ -820,11 +820,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj",
+      "projectUniqueName": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj",
       "projectName": "MovieR.Domain",
-      "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj",
+      "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj",
       "packagesPath": "/Users/lukasdrdla/.nuget/packages/",
-      "outputPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/obj/",
+      "outputPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/lukasdrdla/.nuget/NuGet/NuGet.Config"

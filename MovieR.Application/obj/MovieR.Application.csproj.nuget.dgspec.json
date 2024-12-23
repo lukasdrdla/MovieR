@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj": {}
+    "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj": {}
   },
   "projects": {
-    "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj": {
+    "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj",
+        "projectUniqueName": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj",
         "projectName": "MovieR.Application",
-        "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/MovieR.Application.csproj",
+        "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/MovieR.Application.csproj",
         "packagesPath": "/Users/lukasdrdla/.nuget/packages/",
-        "outputPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Application/obj/",
+        "outputPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Application/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lukasdrdla/.nuget/NuGet/NuGet.Config"
@@ -27,8 +27,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj": {
-                "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj"
+              "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj": {
+                "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj"
               }
             }
           }
@@ -67,14 +67,14 @@
         }
       }
     },
-    "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj": {
+    "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj",
+        "projectUniqueName": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj",
         "projectName": "MovieR.Domain",
-        "projectPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/MovieR.Domain.csproj",
+        "projectPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/MovieR.Domain.csproj",
         "packagesPath": "/Users/lukasdrdla/.nuget/packages/",
-        "outputPath": "/Users/lukasdrdla/RiderProjects/MovieR/MovieR.Domain/obj/",
+        "outputPath": "/Users/lukasdrdla/MovieR/MovieR/MovieR.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lukasdrdla/.nuget/NuGet/NuGet.Config"
