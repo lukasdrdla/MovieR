@@ -1,2 +1,10 @@
 MovieR.API/appsettings.json
 MovieR.API/bin/Debug/net8.0/appsettings.json
+MovieR.API/obj/
+MovieR.API/bin/
+MovieR.Application/bin/
+MovieR.Application/obj/
+MovieR.Domain/bin/
+MovieR.Domain/obj/
+MovieR.Infrastructure/bin/
+MovieR.Infrastructure/obj/
