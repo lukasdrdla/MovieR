@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MovieR.Application.Dtos;
+using MovieR.Application.Dtos.ScreeningRoom;
 using MovieR.Application.Interfaces;
 using MovieR.Domain.Entities;
 
@@ -80,10 +81,10 @@ namespace MovieR.API.Controllers
 
         //PUT: api/ScreeningRoom/5
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateScreeningRoom(Guid id, [FromBody] ScreeningRoomDto screeningRoomDto)
+        public async Task<IActionResult> UpdateScreeningRoom(Guid id, [FromBody] UpdateScreeningRoomDto updateScreeningRoomDto)
         {
             try {
-                var screeningRoom = await _screeningRoomService.UpdateScreeningRoom(id, screeningRoomDto);
+                var screeningRoom = await _screeningRoomService.UpdateScreeningRoom(id, updateScreeningRoomDto);
                 if (screeningRoom == null)
                 {
                     return NotFound(new { Message = "Místnost nebyla nalezena." });

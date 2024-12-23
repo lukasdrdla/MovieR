@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MovieR.Application.Context;
 using MovieR.Application.Dtos;
+using MovieR.Application.Dtos.ScreeningRoom;
 using MovieR.Application.Interfaces;
 using MovieR.Application.Mappers;
 using MovieR.Domain.Entities;
@@ -66,7 +67,7 @@ namespace MovieR.Application.Implementations
             return ScreeningRoomMapper.MapToDto(screeningRoom);
         }
 
-        public async Task<ScreeningRoomDto> UpdateScreeningRoom(Guid id, ScreeningRoomDto screeningRoomDto)
+        public async Task<ScreeningRoomDto> UpdateScreeningRoom(Guid id, UpdateScreeningRoomDto updateScreeningRoomDto)
         {
             var existingScreeningRoom = await _context.ScreeningRooms.FirstOrDefaultAsync(room => room.Id == id);
             if (existingScreeningRoom == null)
@@ -74,9 +75,9 @@ namespace MovieR.Application.Implementations
                 return null;
             }
 
-            existingScreeningRoom.Name = screeningRoomDto.Name;
-            existingScreeningRoom.TotalColumns = screeningRoomDto.TotalColumns;
-            existingScreeningRoom.TotalRows = screeningRoomDto.TotalRows;
+            existingScreeningRoom.Name = updateScreeningRoomDto.Name;
+            existingScreeningRoom.TotalColumns = updateScreeningRoomDto.TotalColumns;
+            existingScreeningRoom.TotalRows = updateScreeningRoomDto.TotalRows;
 
             await _context.SaveChangesAsync(CancellationToken.None);
             return ScreeningRoomMapper.MapToDto(existingScreeningRoom);
