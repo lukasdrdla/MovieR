@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieR.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+770667e7ccf92f5c243e90b9c6bdfbc08cf33f25")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96c1a10b75f203da672a49f5488b4e693d0c7833")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieR.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieR.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

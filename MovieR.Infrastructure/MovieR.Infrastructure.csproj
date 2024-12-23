@@ -10,4 +10,8 @@
       <ProjectReference Include="..\MovieR.Application\MovieR.Application.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8+MySQL9.1.0" />
+    </ItemGroup>
+
 </Project>
