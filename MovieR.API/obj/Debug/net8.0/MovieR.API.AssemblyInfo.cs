@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieR.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+833f13c7907d05c2b5779fca49826add834d6044")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieR.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieR.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
