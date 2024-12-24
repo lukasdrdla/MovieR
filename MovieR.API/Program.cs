@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IScreeningRoomService, ScreeningRoomService>();
+builder.Services.AddScoped<IScreeningService, ScreeningService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
