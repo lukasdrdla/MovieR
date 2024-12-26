@@ -10,8 +10,8 @@ namespace MovieR.Application.Dtos.Screening
         public Guid Id { get; set; }
         public DateTime StartTime { get; set; }
 
-        public Guid MovieId { get; set; }
-        public Guid ScreeningRoomId { get; set; }
+        public string MovieTitle { get; set; } = string.Empty;
+        public string ScreeningRoomName { get; set; } = string.Empty;
         
     }
 }

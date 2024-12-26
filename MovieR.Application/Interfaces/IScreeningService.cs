@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MovieR.Application.Dtos.Reservation;
 using MovieR.Application.Dtos.Screening;
+using MovieR.Application.Dtos.Seat;
 
 namespace MovieR.Application.Interfaces
 {
@@ -20,6 +22,9 @@ namespace MovieR.Application.Interfaces
         Task<IEnumerable<ScreeningDto>> GetScreeningsByMovieId(Guid movieId);
         Task<IEnumerable<ScreeningDto>> GetUpcomingScreenings(int? daysAhead = null, DateTime? fromDay = null, DateTime? toDay = null);
         Task<IEnumerable<ScreeningDto>> SearchScreenings(string search);
+
+        Task<IEnumerable<SeatDto>> GetScreeningSeats(Guid screeningId);
+        Task<IEnumerable<ReservationDto>> GetScreeningReservations(Guid screeningId);
 
 
         

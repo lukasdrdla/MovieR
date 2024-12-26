@@ -15,8 +15,8 @@ namespace MovieR.Application.Mappers
             {
                 Id = screening.Id,
                 StartTime = screening.StartDate,
-                MovieId = screening.MovieId,
-                ScreeningRoomId = screening.ScreeningRoomId
+                MovieTitle = screening.Movie.Title,
+                ScreeningRoomName = screening.ScreeningRoom.Name
             };
         }
         
