@@ -16,7 +16,8 @@ namespace MovieR.Application.Mappers
                 Row = seat.Row,
                 Number = seat.Column,
                 IsAvailable = seat.IsAvailable,
-                ScreeningId = seat.ScreeningId
+                ScreenName = seat.Screening.Movie.Title
+                
             };
         }
         
