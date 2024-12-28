@@ -8,3 +8,5 @@ MovieR.Domain/bin/
 MovieR.Domain/obj/
 MovieR.Infrastructure/bin/
 MovieR.Infrastructure/obj/
+.vscode/
+.idea/
