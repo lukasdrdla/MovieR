@@ -64,14 +64,37 @@ namespace MovieR.Infrastructure.Data
                 new ScreeningRoom { Id = screeningRoom4Id, Name = "Sál 4", TotalColumns = 15, TotalRows = 15 },
                 new ScreeningRoom { Id = screeningRoom5Id, Name = "Sál 5", TotalColumns = 10, TotalRows = 10 });
             
-            builder.Entity<Screening>().HasData(
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(1), MovieId = movie1Id, ScreeningRoomId = screeningRoom1Id },
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(2), MovieId = movie2Id, ScreeningRoomId = screeningRoom2Id },
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(3), MovieId = movie3Id, ScreeningRoomId = screeningRoom3Id },
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(4), MovieId = movie4Id, ScreeningRoomId = screeningRoom4Id },
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(5), MovieId = movie5Id, ScreeningRoomId = screeningRoom5Id },
-                new Screening { Id = Guid.NewGuid(), StartDate = DateTime.Now.AddDays(6), MovieId = movie6Id, ScreeningRoomId = screeningRoom1Id });
+            var screening1Id = Guid.NewGuid();
+            var screening2Id = Guid.NewGuid();
+            var screening3Id = Guid.NewGuid();
+            var screening4Id = Guid.NewGuid();
+            var screening5Id = Guid.NewGuid();
+            var screening6Id = Guid.NewGuid();
 
+
+
+            builder.Entity<Screening>().HasData(
+                new Screening { Id = screening1Id, StartDate = DateTime.Now.AddDays(1), MovieId = movie1Id, ScreeningRoomId = screeningRoom1Id },
+                new Screening { Id = screening2Id, StartDate = DateTime.Now.AddDays(2), MovieId = movie2Id, ScreeningRoomId = screeningRoom2Id },
+                new Screening { Id = screening3Id, StartDate = DateTime.Now.AddDays(3), MovieId = movie3Id, ScreeningRoomId = screeningRoom3Id },
+                new Screening { Id = screening4Id, StartDate = DateTime.Now.AddDays(4), MovieId = movie4Id, ScreeningRoomId = screeningRoom4Id },
+                new Screening { Id = screening5Id, StartDate = DateTime.Now.AddDays(5), MovieId = movie5Id, ScreeningRoomId = screeningRoom5Id },
+                new Screening { Id = screening6Id, StartDate = DateTime.Now.AddDays(6), MovieId = movie6Id, ScreeningRoomId = screeningRoom1Id });
+
+            var seat1Id = Guid.NewGuid();
+            var seat2Id = Guid.NewGuid();
+            var seat3Id = Guid.NewGuid();
+            var seat4Id = Guid.NewGuid();
+            var seat5Id = Guid.NewGuid();
+            var seat6Id = Guid.NewGuid();
+
+            builder.Entity<Seat>().HasData(
+                new Seat { Id = seat1Id, Row = 1, Column = 1, ScreeningId = screening1Id, IsAvailable = true },
+                new Seat { Id = seat2Id, Row = 1, Column = 2, ScreeningId = screening1Id, IsAvailable = true },
+                new Seat { Id = seat3Id, Row = 1, Column = 3, ScreeningId = screening1Id, IsAvailable = true },
+                new Seat { Id = seat4Id, Row = 1, Column = 4, ScreeningId = screening1Id, IsAvailable = true },
+                new Seat { Id = seat5Id, Row = 1, Column = 5, ScreeningId = screening1Id, IsAvailable = true },
+                new Seat { Id = seat6Id, Row = 1, Column = 6, ScreeningId = screening1Id, IsAvailable = true });
         }
 
 
