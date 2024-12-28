@@ -37,7 +37,10 @@ namespace MovieR.Application.Implementations
 
         public async Task<bool> DeleteSeat(Guid id)
         {
-            var existingSeat = await _context.Seats.FirstOrDefaultAsync(s => s.Id == id);
+            var existingSeat = await _context.Seats
+            .Include(s => s.Screening)
+            .ThenInclude(s => s.Movie)
+            .FirstOrDefaultAsync(s => s.Id == id);
             if (existingSeat == null)
             {
                 return false;
@@ -50,27 +53,40 @@ namespace MovieR.Application.Implementations
 
         public async Task<IEnumerable<SeatDto>> GetAllSeats()
         {
-            var seats = await _context.Seats.ToListAsync();
+            var seats = await _context.Seats
+            .Include(s => s.Screening)
+            .ThenInclude(s => s.Movie)
+            .ToListAsync();
             var seatDto = seats.Select(Mappers.SeatMapper.MapToDto).ToList();
             return seatDto;
         }
 
         public async Task<IEnumerable<SeatDto>> GetAvailableSeats(Guid screeningId)
         {
-            var seats = await _context.Seats.Where(s => s.ScreeningId == screeningId && s.IsAvailable).ToListAsync();
+            var seats = await _context.Seats.Where(s => s.ScreeningId == screeningId && s.IsAvailable)
+            .Include(s => s.Screening)
+            .ThenInclude(s => s.Movie)
+            .ToListAsync();
             var seatDtos = seats.Select(Mappers.SeatMapper.MapToDto).ToList();
             return seatDtos;
         }
 
         public async Task<SeatDto> GetSeatById(Guid id)
         {
-            var seat = await _context.Seats.FirstOrDefaultAsync(s => s.Id == id);
+            var seat = await _context.Seats
+            .Include(s => s.Screening)
+            .ThenInclude(s => s.Movie)
+            .FirstOrDefaultAsync(s => s.Id == id);
             return Mappers.SeatMapper.MapToDto(seat ?? throw new Exception("Seat not found"));
         }
 
         public async Task SetSeatAvailability(Guid id, bool isAvailable)
         {
-            var seat = await _context.Seats.FirstOrDefaultAsync(s => s.Id == id);
+            var seat = await _context.Seats
+            .Include(s => s.Screening)
+            .ThenInclude(s => s.Movie)
+            .FirstOrDefaultAsync(s => s.Id == id);
+
             if (seat == null)
             {
                 throw new Exception("Seat not found");
