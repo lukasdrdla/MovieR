@@ -109,6 +109,20 @@ namespace MovieR.API.Controllers
             }
         }
 
+        // GET: api/ScreeningRoom/SearchScreeningRooms?name=room
+
+        [HttpGet("SearchScreeningRooms")]
+        public async Task<IActionResult> SearchScreeningRooms(string search)
+        {
+            try {
+                var screeningRooms = await _screeningRoomService.SearchScreeningRooms(search);
+                return Ok(screeningRooms);
+            
+            } catch (Exception e) {
+                return StatusCode(500, new { Message = "Nastala neočekávaná chyba.", Error = e.Message });
+            }
+        }
+
         
     }
 }
