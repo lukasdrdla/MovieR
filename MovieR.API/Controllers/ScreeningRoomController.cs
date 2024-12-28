@@ -68,7 +68,7 @@ namespace MovieR.API.Controllers
         // POST: api/ScreeningRoom
 
         [HttpPost]
-        public async Task<IActionResult> CreateScreeningRoom([FromBody] ScreeningRoomDto screeningRoomDto)
+        public async Task<IActionResult> CreateScreeningRoom([FromBody] CreateScreeningRoomDto screeningRoomDto)
         {
             try {
                 var screeningRoom = await _screeningRoomService.CreateScreeningRoom(screeningRoomDto);
@@ -90,6 +90,19 @@ namespace MovieR.API.Controllers
                     return NotFound(new { Message = "Místnost nebyla nalezena." });
                 }
                 return Ok(screeningRoom);
+            
+            } catch (Exception e) {
+                return StatusCode(500, new { Message = "Nastala neočekávaná chyba.", Error = e.Message });
+            }
+        }
+
+        // GET: api/ScreeningRoom/GetScreeningRoomsByCapacity?minCapacity=10&maxCapacity=20
+        [HttpGet("GetScreeningRoomsByCapacity")]
+        public async Task<IActionResult> GetScreeningRoomsByCapacity(int minCapacity, int maxCapacity)
+        {
+            try {
+                var screeningRooms = await _screeningRoomService.GetScreeningRoomsByCapacityAsync(minCapacity, maxCapacity);
+                return Ok(screeningRooms);
             
             } catch (Exception e) {
                 return StatusCode(500, new { Message = "Nastala neočekávaná chyba.", Error = e.Message });

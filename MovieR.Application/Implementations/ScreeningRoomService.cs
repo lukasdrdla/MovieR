@@ -21,7 +21,7 @@ namespace MovieR.Application.Implementations
             _context = context;
         }
 
-        public async Task<ScreeningRoomDto> CreateScreeningRoom(ScreeningRoomDto screeningRoomDto)
+        public async Task<ScreeningRoomDto> CreateScreeningRoom(CreateScreeningRoomDto screeningRoomDto)
         {
             var screeningRoom = new ScreeningRoom
             {
@@ -30,6 +30,7 @@ namespace MovieR.Application.Implementations
                 TotalColumns = screeningRoomDto.TotalColumns,
                 TotalRows = screeningRoomDto.TotalRows
             };
+
 
             await _context.ScreeningRooms.AddAsync(screeningRoom);
             await _context.SaveChangesAsync(CancellationToken.None);
@@ -65,6 +66,22 @@ namespace MovieR.Application.Implementations
         {
             var screeningRoom = await _context.ScreeningRooms.FirstOrDefaultAsync(room => room.Id == id);
             return ScreeningRoomMapper.MapToDto(screeningRoom);
+        }
+
+        public async Task<IEnumerable<ScreeningRoomDto>> GetScreeningRoomsByCapacityAsync(int minCapacity, int maxCapacity)
+        {
+            var screeningRooms = await _context.ScreeningRooms
+                .Where(room => room.MaxCapacity >= minCapacity && room.MaxCapacity <= maxCapacity)
+                .ToListAsync();
+            
+            var screeningRoomDtos = screeningRooms.Select(room => ScreeningRoomMapper.MapToDto(room)).ToList();
+
+            return screeningRoomDtos;
+        }
+
+        public Task<IEnumerable<ScreeningRoomDto>> SearchScreeningRooms(string search)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<ScreeningRoomDto> UpdateScreeningRoom(Guid id, UpdateScreeningRoomDto updateScreeningRoomDto)

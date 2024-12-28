@@ -265,7 +265,7 @@ namespace MovieR.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("42481c16-ba8b-411a-85a8-ad501d590e68"),
+                            Id = new Guid("53bda430-eee8-4c80-b9b4-28a10023e0fd"),
                             Description = "Two imprisoned",
                             DurationMinutes = 0,
                             Genre = "",
@@ -275,7 +275,7 @@ namespace MovieR.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("20f25861-875d-451f-a01e-b6f314ff5903"),
+                            Id = new Guid("12f609a6-ab4d-42a3-b69a-5b0db8ec8b6b"),
                             Description = "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
                             DurationMinutes = 0,
                             Genre = "",
@@ -285,7 +285,7 @@ namespace MovieR.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f8d47660-d885-4f08-b4f9-bf0ab53a0126"),
+                            Id = new Guid("44e69150-fdfa-49a1-8315-d1229be86fc1"),
                             Description = "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
                             DurationMinutes = 0,
                             Genre = "",
@@ -295,7 +295,7 @@ namespace MovieR.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("384478fd-4977-4ce0-957b-d61d5d7b3382"),
+                            Id = new Guid("ed0a3434-eb40-4c48-9093-b605f40ddac5"),
                             Description = "The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.",
                             DurationMinutes = 0,
                             Genre = "",
@@ -305,7 +305,7 @@ namespace MovieR.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d093ed54-63b8-47c1-b1d5-dae702251a00"),
+                            Id = new Guid("1e82459e-256e-435d-a1ce-55e4d7845cfc"),
                             Description = "Gandalf and Aragorn lead the World",
                             DurationMinutes = 0,
                             Genre = "",
@@ -315,7 +315,7 @@ namespace MovieR.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9264d67b-d0f0-445d-809c-85836bf67d7d"),
+                            Id = new Guid("159e6bb1-c185-40bc-b3a2-9c2e67c4a560"),
                             Description = "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
                             DurationMinutes = 0,
                             Genre = "",
@@ -431,45 +431,45 @@ namespace MovieR.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("21856b39-b297-4e25-9dba-ae6347895925"),
-                            MovieId = new Guid("42481c16-ba8b-411a-85a8-ad501d590e68"),
-                            ScreeningRoomId = new Guid("083c2b00-0231-4830-9a9c-f32b7f2e69dc"),
-                            StartDate = new DateTime(2024, 12, 27, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9790)
+                            Id = new Guid("fb98a14b-5eed-4d4b-b2f4-f343c3f149d0"),
+                            MovieId = new Guid("53bda430-eee8-4c80-b9b4-28a10023e0fd"),
+                            ScreeningRoomId = new Guid("35de9145-3fb4-4694-82d1-8b0add1a5b3b"),
+                            StartDate = new DateTime(2024, 12, 28, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(740)
                         },
                         new
                         {
-                            Id = new Guid("0b408efd-e6a7-4893-804f-16544b51aaf3"),
-                            MovieId = new Guid("20f25861-875d-451f-a01e-b6f314ff5903"),
-                            ScreeningRoomId = new Guid("055fdb73-0ce5-4f01-978c-98bac173c138"),
-                            StartDate = new DateTime(2024, 12, 28, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9880)
+                            Id = new Guid("9684e9b8-b0c1-4bf1-a723-bc46d49ccd38"),
+                            MovieId = new Guid("12f609a6-ab4d-42a3-b69a-5b0db8ec8b6b"),
+                            ScreeningRoomId = new Guid("dae06b3c-e812-429c-981f-18929cafa048"),
+                            StartDate = new DateTime(2024, 12, 29, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(790)
                         },
                         new
                         {
-                            Id = new Guid("7c9aa09a-8c98-45d1-ac09-e22c4adaf9fe"),
-                            MovieId = new Guid("f8d47660-d885-4f08-b4f9-bf0ab53a0126"),
-                            ScreeningRoomId = new Guid("3a6ca45b-b2a0-4c5f-b429-7f679e5eeb37"),
-                            StartDate = new DateTime(2024, 12, 29, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9880)
+                            Id = new Guid("efe9e384-3001-442d-8d3e-12507a3e5a69"),
+                            MovieId = new Guid("44e69150-fdfa-49a1-8315-d1229be86fc1"),
+                            ScreeningRoomId = new Guid("c59538e7-5888-452b-b6f2-8005be22e5f7"),
+                            StartDate = new DateTime(2024, 12, 30, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(800)
                         },
                         new
                         {
-                            Id = new Guid("e7009a77-90a8-4985-9703-18b9301ed304"),
-                            MovieId = new Guid("384478fd-4977-4ce0-957b-d61d5d7b3382"),
-                            ScreeningRoomId = new Guid("b9a0ee62-76e2-43f5-b737-a91878edc345"),
-                            StartDate = new DateTime(2024, 12, 30, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9890)
+                            Id = new Guid("3dae973d-0b08-46af-b7fc-81af3d5ef5f2"),
+                            MovieId = new Guid("ed0a3434-eb40-4c48-9093-b605f40ddac5"),
+                            ScreeningRoomId = new Guid("552cd46a-266c-42cb-8410-03a9ee547f8d"),
+                            StartDate = new DateTime(2024, 12, 31, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(810)
                         },
                         new
                         {
-                            Id = new Guid("f1fa3844-28b5-47ed-9dbe-5670d0b49799"),
-                            MovieId = new Guid("d093ed54-63b8-47c1-b1d5-dae702251a00"),
-                            ScreeningRoomId = new Guid("276fa985-ea6c-45a6-b2b9-c8e25ce769c9"),
-                            StartDate = new DateTime(2024, 12, 31, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9900)
+                            Id = new Guid("230465b8-7d79-4896-8dc4-3052b5a3c26f"),
+                            MovieId = new Guid("1e82459e-256e-435d-a1ce-55e4d7845cfc"),
+                            ScreeningRoomId = new Guid("0dc407d3-e93c-44a0-bcdb-8e41bb3de2c1"),
+                            StartDate = new DateTime(2025, 1, 1, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(820)
                         },
                         new
                         {
-                            Id = new Guid("a6fdbd45-df69-4878-be9e-c8771870e920"),
-                            MovieId = new Guid("9264d67b-d0f0-445d-809c-85836bf67d7d"),
-                            ScreeningRoomId = new Guid("083c2b00-0231-4830-9a9c-f32b7f2e69dc"),
-                            StartDate = new DateTime(2025, 1, 1, 8, 27, 59, 568, DateTimeKind.Local).AddTicks(9910)
+                            Id = new Guid("af47403c-e5d5-4349-a284-a7963d699ba1"),
+                            MovieId = new Guid("159e6bb1-c185-40bc-b3a2-9c2e67c4a560"),
+                            ScreeningRoomId = new Guid("35de9145-3fb4-4694-82d1-8b0add1a5b3b"),
+                            StartDate = new DateTime(2025, 1, 2, 7, 56, 9, 682, DateTimeKind.Local).AddTicks(820)
                         });
                 });
 
@@ -478,6 +478,9 @@ namespace MovieR.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
+
+                    b.Property<int>("MaxCapacity")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -496,35 +499,40 @@ namespace MovieR.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("083c2b00-0231-4830-9a9c-f32b7f2e69dc"),
+                            Id = new Guid("35de9145-3fb4-4694-82d1-8b0add1a5b3b"),
+                            MaxCapacity = 0,
                             Name = "Sál 1",
                             TotalColumns = 10,
                             TotalRows = 10
                         },
                         new
                         {
-                            Id = new Guid("055fdb73-0ce5-4f01-978c-98bac173c138"),
+                            Id = new Guid("dae06b3c-e812-429c-981f-18929cafa048"),
+                            MaxCapacity = 0,
                             Name = "Sál 2",
                             TotalColumns = 8,
                             TotalRows = 20
                         },
                         new
                         {
-                            Id = new Guid("3a6ca45b-b2a0-4c5f-b429-7f679e5eeb37"),
+                            Id = new Guid("c59538e7-5888-452b-b6f2-8005be22e5f7"),
+                            MaxCapacity = 0,
                             Name = "Sál 3",
                             TotalColumns = 12,
                             TotalRows = 15
                         },
                         new
                         {
-                            Id = new Guid("b9a0ee62-76e2-43f5-b737-a91878edc345"),
+                            Id = new Guid("552cd46a-266c-42cb-8410-03a9ee547f8d"),
+                            MaxCapacity = 0,
                             Name = "Sál 4",
                             TotalColumns = 15,
                             TotalRows = 15
                         },
                         new
                         {
-                            Id = new Guid("276fa985-ea6c-45a6-b2b9-c8e25ce769c9"),
+                            Id = new Guid("0dc407d3-e93c-44a0-bcdb-8e41bb3de2c1"),
+                            MaxCapacity = 0,
                             Name = "Sál 5",
                             TotalColumns = 10,
                             TotalRows = 10

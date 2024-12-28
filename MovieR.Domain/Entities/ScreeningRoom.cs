@@ -6,6 +6,7 @@ public class ScreeningRoom
     public string Name { get; set; } = string.Empty;
     public int TotalRows { get; set; }
     public int TotalColumns { get; set; }
+    public int MaxCapacity { get; set; }
 
     // Navigation properties
     public List<Screening> Screenings { get; set; } = new List<Screening>();
