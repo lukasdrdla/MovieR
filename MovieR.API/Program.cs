@@ -21,6 +21,7 @@ builder.Services.AddScoped<IScreeningRoomService, ScreeningRoomService>();
 builder.Services.AddScoped<IScreeningService, ScreeningService>();
 builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ISeatService, SeatService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
