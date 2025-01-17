@@ -61,7 +61,7 @@ namespace MovieR.Application.Implementations
         public async Task<ReviewDto> GetReviewById(Guid id)
         {
             var review = await _context.Reviews.FirstOrDefaultAsync(review => review.Id == id);
-            return ReviewMapper.MapToDto(review?? new Domain.Entities.Review());
+            return ReviewMapper.MapToDto(review?? new Review());
         }
 
         public async Task<IEnumerable<ReviewDto>> GetReviewsByMovieId(Guid movieId)
