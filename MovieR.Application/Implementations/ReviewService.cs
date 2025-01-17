@@ -7,6 +7,7 @@ using MovieR.Application.Context;
 using MovieR.Application.Dtos.Review;
 using MovieR.Application.Interfaces;
 using MovieR.Application.Mappers;
+using MovieR.Domain.Entities;
 
 namespace MovieR.Application.Implementations
 {
@@ -20,9 +21,21 @@ namespace MovieR.Application.Implementations
             _context = context;
         }
 
-        public Task<ReviewDto> CreateReview(CreateReviewDto reviewDto)
+        public async Task<ReviewDto> CreateReview(CreateReviewDto reviewDto)
         {
-            throw new NotImplementedException();
+            var review = new Review
+            {
+                ReviewDate = reviewDto.ReviewDate,
+                Content = reviewDto.Content,
+                Rating = reviewDto.Rating,
+                MovieId = reviewDto.MovieId,
+                UserId = reviewDto.UserId
+            };
+
+            await _context.Reviews.AddAsync(review);
+            await _context.SaveChangesAsync(CancellationToken.None);
+
+            return ReviewMapper.MapToDto(review);
         }
 
         public async Task<bool> DeleteReview(Guid id)
