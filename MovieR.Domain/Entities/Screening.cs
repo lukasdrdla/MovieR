@@ -14,4 +14,6 @@ public class Screening
     public ICollection<TicketPrice> TicketPrices { get; set; } = new List<TicketPrice>();
     public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 
+    public DateTime EndDate => StartDate.AddMinutes(Movie.DurationMinutes);
+
 }
