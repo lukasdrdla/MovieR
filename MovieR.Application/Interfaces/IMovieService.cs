@@ -20,21 +20,6 @@ namespace MovieR.Application.Interfaces
         Task<IEnumerable<MovieDto>> FilterMoviesAsync(string genre, DateTime? releaseDateFrom, DateTime? releaseDateTo);
         Task<IEnumerable<MovieDto>> GetUpcomingMoviesAsync();
         Task<IEnumerable<MovieDto>> GetNowShowingMoviesAsync();
-
-        // Reviews
-        //Task<IEnumerable<ReviewDto>> GetMovieReviewsAsync(Guid movieId);
-        //Task<ReviewDto> AddReviewAsync(Guid movieId, CreateReviewDto reviewDto);
-        //Task<ReviewDto> UpdateReviewAsync(Guid movieId, Guid reviewId, UpdateReviewDto reviewDto);
-        //Task<bool> DeleteReviewAsync(Guid movieId, Guid reviewId);
-
-        // Screenings
-        Task<IEnumerable<ScreeningDto>> GetMovieScreeningsAsync(Guid movieId);
-        Task<IEnumerable<ScreeningDto>> GetUpcomingScreeningsAsync(Guid movieId);
-
-        // Additional Operations
-        Task<double> GetAverageRatingAsync(Guid movieId);
-        Task<IEnumerable<MovieDto>> GetPopularMoviesAsync(int count);
-        Task<IEnumerable<MovieDto>> GetRecommendedMoviesAsync(string genre);
         
     }
 }

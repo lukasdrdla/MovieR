@@ -149,19 +149,7 @@ namespace MovieR.API.Controllers
             }
         }
 
-        // GET: api/Movie/{id}/Screenings
-
-        [HttpGet("{id}/Screenings")]
-        public async Task<IActionResult> GetMovieScreenings([FromRoute] Guid id)
-        {
-            try {
-                var screenings = await _movieService.GetMovieScreeningsAsync(id);
-                return Ok(screenings);
-            
-            } catch (Exception e) {
-                return StatusCode(500, new { Message = "Nastala neočekávaná chyba.", Error = e.Message });
-            }
-        }
+        
         
     }
 }

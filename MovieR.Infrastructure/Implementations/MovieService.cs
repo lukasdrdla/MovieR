@@ -99,12 +99,11 @@ namespace MovieR.Infrastructure.Implementations
 
         public async Task<IEnumerable<MovieDto>> GetNowShowingMoviesAsync()
         {
+            var now = DateTime.UtcNow;
             var nowShowingMovies = await _context.Movies
-                    .Where(movie => movie.Screenings
-                        .Any(screening => screening.StartDate < DateTime.UtcNow && 
-                                        screening.StartDate.AddMinutes(movie.DurationMinutes) > DateTime.UtcNow))
-                    .ToListAsync();
-        var movieDtos = nowShowingMovies.Select(movie => movie.MapToDto()).ToList();
+            .Include(movie => movie.Screenings)
+            .Where( movie => movie.Screenings.Any(screening => screening.StartDate <= now && screening.StartDate.AddMinutes(movie.DurationMinutes) >= now)).ToListAsync();
+            var movieDtos = nowShowingMovies.Select(movie => movie.MapToDto()).ToList();
             return movieDtos;
         }
 
@@ -130,14 +129,6 @@ namespace MovieR.Infrastructure.Implementations
             var movieDtos = upcomingMovies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
-        }
-
-        public async Task<IEnumerable<ScreeningDto>> GetUpcomingScreeningsAsync(Guid movieId)
-        {
-            var upcomingScreenings = await _context.Screenings.Where(screening => screening.MovieId == movieId && screening.StartDate > DateTime.Now).ToListAsync();
-            var screeningDtos = upcomingScreenings.Select(screening => ScreeningMapper.MapToDto(screening)).ToList();
-
-            return screeningDtos;
         }
 
         public async Task<IEnumerable<MovieDto>> SearchMoviesAsync(string title)
