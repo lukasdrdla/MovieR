@@ -6,16 +6,11 @@ using MovieR.Application.Dtos.Seat;
 
 namespace MovieR.Application.Dtos.Reservation
 {
-    public class ReservationDto
+    public class CreateReservationDto
     {
-        public Guid Id { get; set; }
-        public DateTime ReservationDate { get; set; }
-        public string Status { get; set; } = string.Empty;
+        public DateTime ReservationDate { get; set; } = DateTime.UtcNow;
         public Guid ScreeningId { get; set; }
-        public string ScreeningName { get; set; } = string.Empty;
         public Guid UserId { get; set; }
-        public string UserName { get; set; } = string.Empty;
         public List<ReservedSeatDto> ReservedSeats { get; set; } = new();
-        
     }
 }

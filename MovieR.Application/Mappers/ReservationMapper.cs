@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MovieR.Application.Dtos.Reservation;
+using MovieR.Application.Dtos.Seat;
 using MovieR.Domain.Entities;
 
 namespace MovieR.Application.Mappers
@@ -15,11 +16,17 @@ namespace MovieR.Application.Mappers
             {
                 Id = reservation.Id,
                 ReservationDate = reservation.ReservationDate,
-                Status = reservation.Status,
-                ScreeningRoomName = reservation.Screening.ScreeningRoom.Name,
-                MovieName = reservation.Screening.Movie.Title,
+                Status = reservation.Status.ToString(),
                 ScreeningId = reservation.ScreeningId,
-                UserName = reservation.User.UserName??string.Empty
+                ScreeningName = reservation.Screening.Movie.Title,
+                UserId = reservation.UserId,
+                UserName = reservation.User.UserName,
+                ReservedSeats = reservation.ReservedSeats.Select(seat => new ReservedSeatDto
+                {
+                    SeatId = seat.SeatId,
+                    SeatNumber = (seat.Seat.Row + seat.Seat.Column).ToString(),
+                    Row = (seat.Seat.Row).ToString()
+                }).ToList()
             };
         }
         
