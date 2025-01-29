@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MovieR.Application.Context;
 using MovieR.Application.Dtos.Review;
 using MovieR.Application.Interfaces;
 using MovieR.Application.Mappers;
 using MovieR.Domain.Entities;
+using MovieR.Infrastructure.Data;
 
-namespace MovieR.Application.Implementations
+namespace MovieR.Infrastructure.Implementations
 {
     public class ReviewService : IReviewService
     {
 
-        private readonly IApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ReviewService(IApplicationDbContext context)
+        public ReviewService(ApplicationDbContext context)
         {
             _context = context;
         }

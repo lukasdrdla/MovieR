@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MovieR.Application.Context;
 using MovieR.Application.Dtos.Reservation;
 using MovieR.Application.Dtos.Screening;
 using MovieR.Application.Dtos.Seat;
 using MovieR.Application.Interfaces;
+using MovieR.Application.Mappers;
 using MovieR.Domain.Entities;
+using MovieR.Infrastructure.Data;
 
-namespace MovieR.Application.Implementations
+namespace MovieR.Infrastructure.Implementations
 {
     public class ScreeningService : IScreeningService
     {
-        private readonly IApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ScreeningService(IApplicationDbContext context)
+        public ScreeningService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -34,7 +35,7 @@ namespace MovieR.Application.Implementations
             await _context.Screenings.AddAsync(newScreening);
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            return Mappers.ScreeningMapper.MapToDto(newScreening);
+            return ScreeningMapper.MapToDto(newScreening);
 
         }
 
@@ -57,7 +58,7 @@ namespace MovieR.Application.Implementations
             .Include(s => s.Movie)
             .Include(s => s.ScreeningRoom)
             .ToListAsync();
-            var screeningsDtos = screenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+            var screeningsDtos = screenings.Select(ScreeningMapper.MapToDto).ToList();
             return screeningsDtos;
             
         }
@@ -69,7 +70,7 @@ namespace MovieR.Application.Implementations
                 .Include(s => s.Movie)
                 .Include(s => s.ScreeningRoom)
                 .ToListAsync();
-            var screeningsDtos = screenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+            var screeningsDtos = screenings.Select(ScreeningMapper.MapToDto).ToList();
 
             return screeningsDtos;
         }
@@ -86,7 +87,7 @@ namespace MovieR.Application.Implementations
                 return null;
             }
 
-            var screeningDto = Mappers.ScreeningMapper.MapToDto(screening);
+            var screeningDto = ScreeningMapper.MapToDto(screening);
             return screeningDto;
         }
 
@@ -98,7 +99,7 @@ namespace MovieR.Application.Implementations
                 .Include(r => r.User)
                 .ToListAsync();
 
-            var reservationsDtos = reservations.Select(Mappers.ReservationMapper.MapToDto).ToList();
+            var reservationsDtos = reservations.Select(ReservationMapper.MapToDto).ToList();
 
             return reservationsDtos;
         }
@@ -110,7 +111,7 @@ namespace MovieR.Application.Implementations
                 .Include(s => s.Movie)
                 .Include(s => s.ScreeningRoom)
                 .ToListAsync();
-            var screeningsDtos = screening.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+            var screeningsDtos = screening.Select(ScreeningMapper.MapToDto).ToList();
 
             return screeningsDtos;
         }
@@ -120,7 +121,7 @@ namespace MovieR.Application.Implementations
             var seats = await _context.Seats
                 .Where(s => s.ScreeningId == screeningId)
                 .ToListAsync();
-            var seatsDtos = seats.Select(Mappers.SeatMapper.MapToDto).ToList();
+            var seatsDtos = seats.Select(SeatMapper.MapToDto).ToList();
 
             return seatsDtos;
             
@@ -133,7 +134,7 @@ namespace MovieR.Application.Implementations
                 .Include(s => s.Movie)
                 .Include(s => s.ScreeningRoom)
                 .ToListAsync();
-            var screeningsDtos = todayScreenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+            var screeningsDtos = todayScreenings.Select(ScreeningMapper.MapToDto).ToList();
 
             return screeningsDtos;
         }
@@ -150,7 +151,7 @@ namespace MovieR.Application.Implementations
                 var upcomingScreenings = screenings
                     .Where(s => s.StartDate.Date >= DateTime.Now.Date && s.StartDate.Date <= DateTime.Now.AddDays(daysAhead.Value).Date)
                     .ToList();
-                var screeningsDtos = upcomingScreenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+                var screeningsDtos = upcomingScreenings.Select(ScreeningMapper.MapToDto).ToList();
 
                 return screeningsDtos;
             }
@@ -159,7 +160,7 @@ namespace MovieR.Application.Implementations
                 var upcomingScreenings = screenings
                     .Where(s => s.StartDate.Date >= fromDay.Value.Date && s.StartDate.Date <= toDay.Value.Date)
                     .ToList();
-                var screeningsDtos = upcomingScreenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+                var screeningsDtos = upcomingScreenings.Select(ScreeningMapper.MapToDto).ToList();
 
                 return screeningsDtos;
             }
@@ -168,7 +169,7 @@ namespace MovieR.Application.Implementations
                 var upcomingScreenings = screenings
                     .Where(s => s.StartDate.Date >= DateTime.Now.Date)
                     .ToList();
-                var screeningsDtos = upcomingScreenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+                var screeningsDtos = upcomingScreenings.Select(ScreeningMapper.MapToDto).ToList();
 
                 return screeningsDtos;
 
@@ -186,7 +187,7 @@ namespace MovieR.Application.Implementations
                 .Include(s => s.Movie)
                 .Include(s => s.ScreeningRoom)
                 .ToListAsync();
-            var screeningsDtos = screenings.Select(Mappers.ScreeningMapper.MapToDto).ToList();
+            var screeningsDtos = screenings.Select(ScreeningMapper.MapToDto).ToList();
 
             return screeningsDtos;
         }
@@ -204,7 +205,7 @@ namespace MovieR.Application.Implementations
             existingScreening.ScreeningRoomId = screeningDto.ScreeningRoomId;
 
             await _context.SaveChangesAsync(CancellationToken.None);
-            return Mappers.ScreeningMapper.MapToDto(existingScreening);
+            return ScreeningMapper.MapToDto(existingScreening);
         }
     }
 }

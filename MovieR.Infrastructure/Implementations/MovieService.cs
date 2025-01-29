@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MovieR.Application.Context;
 using MovieR.Application.Dtos.Movie;
 using MovieR.Application.Dtos.Screening;
 using MovieR.Application.Interfaces;
 using MovieR.Application.Mappers;
 using MovieR.Domain.Entities;
+using MovieR.Infrastructure.Data;
 
-namespace MovieR.Application.Implementations
+namespace MovieR.Infrastructure.Implementations
 {
     public class MovieService : IMovieService
     {
 
-        private readonly IApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public MovieService(IApplicationDbContext context)
+        public MovieService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -37,7 +37,7 @@ namespace MovieR.Application.Implementations
             await _context.Movies.AddAsync(movie);
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            return MovieMapper.MapToDto(movie);
+            return movie.MapToDto();
 
         }
 
@@ -62,7 +62,7 @@ namespace MovieR.Application.Implementations
         public async Task<IEnumerable<MovieDto>> GetAllMoviesAsync()
         {
             var movies = await _context.Movies.ToListAsync();
-            var movieDtos = movies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+            var movieDtos = movies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
         }
@@ -76,10 +76,6 @@ namespace MovieR.Application.Implementations
             }
 
             var reviews = await _context.Reviews.Where(review => review.MovieId == movieId).ToListAsync();
-            if (reviews.Count == 0)
-            {
-                return 0;
-            }
 
             var averageRating = reviews.Average(review => review.Rating);
 
@@ -89,7 +85,7 @@ namespace MovieR.Application.Implementations
         public async Task<MovieDto> GetMovieByIdAsync(Guid id)
         {
             var movie = await _context.Movies.FirstOrDefaultAsync(movie => movie.Id == id);
-            return MovieMapper.MapToDto(movie);
+            return movie.MapToDto();
         }
 
         public async Task<IEnumerable<ScreeningDto>> GetMovieScreeningsAsync(Guid movieId)
@@ -108,14 +104,14 @@ namespace MovieR.Application.Implementations
                         .Any(screening => screening.StartDate < DateTime.UtcNow && 
                                         screening.StartDate.AddMinutes(movie.DurationMinutes) > DateTime.UtcNow))
                     .ToListAsync();
-        var movieDtos = nowShowingMovies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+        var movieDtos = nowShowingMovies.Select(movie => movie.MapToDto()).ToList();
             return movieDtos;
         }
 
         public async Task<IEnumerable<MovieDto>> GetPopularMoviesAsync(int count)
         {
             var popularMovies = await _context.Movies.OrderByDescending(movie => movie.Reviews).Take(count).ToListAsync();
-            var movieDtos = popularMovies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+            var movieDtos = popularMovies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
         }
@@ -123,7 +119,7 @@ namespace MovieR.Application.Implementations
         public async Task<IEnumerable<MovieDto>> GetRecommendedMoviesAsync(string genre)
         {
             var recommendedMovies = await _context.Movies.Where(movie => movie.Genre == genre).ToListAsync();
-            var movieDtos = recommendedMovies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+            var movieDtos = recommendedMovies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
         }
@@ -131,7 +127,7 @@ namespace MovieR.Application.Implementations
         public async Task<IEnumerable<MovieDto>> GetUpcomingMoviesAsync()
         {
             var upcomingMovies = await _context.Movies.Where(movie => movie.ReleaseDate > DateTime.UtcNow).ToListAsync();
-            var movieDtos = upcomingMovies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+            var movieDtos = upcomingMovies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
         }
@@ -147,7 +143,7 @@ namespace MovieR.Application.Implementations
         public async Task<IEnumerable<MovieDto>> SearchMoviesAsync(string title)
         {
             var movies = await _context.Movies.Where(movie => movie.Title.Contains(title)).ToListAsync();
-            var movieDtos = movies.Select(movie => MovieMapper.MapToDto(movie)).ToList();
+            var movieDtos = movies.Select(movie => movie.MapToDto()).ToList();
 
             return movieDtos;
         }
@@ -169,7 +165,7 @@ namespace MovieR.Application.Implementations
 
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            return MovieMapper.MapToDto(existingMovie);
+            return existingMovie.MapToDto();
         }
     }
 }

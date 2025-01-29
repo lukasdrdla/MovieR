@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using MovieR.Application.Context;
 using MovieR.Application.Dtos.Seat;
 using MovieR.Application.Interfaces;
+using MovieR.Application.Mappers;
 using MovieR.Domain.Entities;
+using MovieR.Infrastructure.Data;
 
-namespace MovieR.Application.Implementations
+namespace MovieR.Infrastructure.Implementations
 {
     public class SeatService : ISeatService
     {
-        private readonly IApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public SeatService(IApplicationDbContext context)
+        public SeatService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -32,7 +33,7 @@ namespace MovieR.Application.Implementations
             await _context.Seats.AddAsync(newSeat);
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            return Mappers.SeatMapper.MapToDto(newSeat);
+            return SeatMapper.MapToDto(newSeat);
         }
 
         public async Task<bool> DeleteSeat(Guid id)
@@ -57,7 +58,7 @@ namespace MovieR.Application.Implementations
             .Include(s => s.Screening)
             .ThenInclude(s => s.Movie)
             .ToListAsync();
-            var seatDto = seats.Select(Mappers.SeatMapper.MapToDto).ToList();
+            var seatDto = seats.Select(SeatMapper.MapToDto).ToList();
             return seatDto;
         }
 
@@ -67,7 +68,7 @@ namespace MovieR.Application.Implementations
             .Include(s => s.Screening)
             .ThenInclude(s => s.Movie)
             .ToListAsync();
-            var seatDtos = seats.Select(Mappers.SeatMapper.MapToDto).ToList();
+            var seatDtos = seats.Select(SeatMapper.MapToDto).ToList();
             return seatDtos;
         }
 
@@ -77,7 +78,7 @@ namespace MovieR.Application.Implementations
             .Include(s => s.Screening)
             .ThenInclude(s => s.Movie)
             .FirstOrDefaultAsync(s => s.Id == id);
-            return Mappers.SeatMapper.MapToDto(seat ?? throw new Exception("Seat not found"));
+            return SeatMapper.MapToDto(seat ?? throw new Exception("Seat not found"));
         }
 
         public async Task SetSeatAvailability(Guid id, bool isAvailable)
@@ -111,7 +112,7 @@ namespace MovieR.Application.Implementations
 
             await _context.SaveChangesAsync(CancellationToken.None);
 
-            return Mappers.SeatMapper.MapToDto(existingSeat);
+            return SeatMapper.MapToDto(existingSeat);
         }
     }
 }

@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using MovieR.Application.Context;
 using MovieR.Application.Implementations;
 using MovieR.Application.Interfaces;
 using MovieR.Domain.Entities;
 using MovieR.Infrastructure.Data;
+using MovieR.Infrastructure.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,13 +23,13 @@ builder.Services.AddScoped<IMovieService, MovieService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ISeatService, SeatService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty);
 });
 
-builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>() ?? throw new Exception("No service found for type IApplicationDbContext"));
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
 {

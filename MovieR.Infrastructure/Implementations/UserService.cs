@@ -11,7 +11,7 @@ using MovieR.Application.Dtos.User;
 using MovieR.Application.Interfaces;
 using MovieR.Domain.Entities;
 
-namespace MovieR.Application.Implementations
+namespace MovieR.Infrastructure.Implementations
 {
     public class UserService : IUserService
     {
