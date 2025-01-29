@@ -16,7 +16,8 @@ namespace MovieR.Application.Mappers
                 Id = screeningRoom.Id,
                 Name = screeningRoom.Name,
                 TotalRows = screeningRoom.TotalRows,
-                TotalColumns = screeningRoom.TotalColumns
+                TotalColumns = screeningRoom.TotalColumns,
+                MaxCapacity = screeningRoom.MaxCapacity
             };
         }
         

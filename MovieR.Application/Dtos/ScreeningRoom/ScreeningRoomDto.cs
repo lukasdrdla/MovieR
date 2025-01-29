@@ -11,6 +11,7 @@ namespace MovieR.Application.Dtos
         public string Name { get; set; } = string.Empty;
         public int TotalRows { get; set; }
         public int TotalColumns { get; set; }
+        public int MaxCapacity { get; set; }
         
     }
 }
